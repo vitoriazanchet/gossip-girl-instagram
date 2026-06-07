@@ -6,8 +6,9 @@ import { AiOutlinePlus, AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 import { TbAlignBoxRightStretch } from "react-icons/tb";
 import { FaBars, FaMeta, FaRetweet } from "react-icons/fa6";
 import { VscAccount, VscVerifiedFilled } from "react-icons/vsc";
-import { IoChatbubbleOutline, IoAlertCircleOutline } from "react-icons/io5";
+import { IoChatbubbleOutline, IoAlertCircleOutline, IoCheckmarkCircleOutline, IoCloseSharp } from "react-icons/io5";
 import { RiBookmarkLine } from "react-icons/ri";
+import { IoIosArrowDown, IoIosArrowBack, IoMdHelpCircleOutline } from "react-icons/io";
 
 export const Icones = {
     Instagram: FaInstagram,
@@ -31,4 +32,9 @@ export const Icones = {
     Visivel: AiFillEye,
     Escondido: AiFillEyeInvisible,
     Alerta: IoAlertCircleOutline,
+    ArrowDown: IoIosArrowDown,
+    ArrowBack: IoIosArrowBack,
+    Ajuda: IoMdHelpCircleOutline,
+    Verificado: IoCheckmarkCircleOutline,
+    X: IoCloseSharp,
 };

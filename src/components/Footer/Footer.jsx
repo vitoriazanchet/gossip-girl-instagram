@@ -1,10 +1,11 @@
 import { useState, useEffect } from 'react';
 import styles from './Footer.module.css';
-import { Toast } from './Toast';
+import { Toast } from '../Toast/Toast.jsx';
+import { Icones } from '../../utils/icons.js';
 
 export function Footer() {
-    const [fraseAtual, setFraseAtual] = useState(0);
-    const [exibirBalao, setExibirBalao] = useState(false);
+    const [mensagemAtual, setMensagemAtual] = useState(0);
+    const [exibirToast, setExibirToast] = useState(false);
 
     const links = [
         "Meta", "Sobre", "Blog", "Carreiras", "Ajuda", "API", 
@@ -12,22 +13,26 @@ export function Footer() {
         "Instagram Lite", "Meta AI", "Threads", "Upload de contatos e não usuários", "Meta Verified"
     ];
 
-    const totalFrases = 9;
+    const mensagensSequenciais = [
+        "Achou mesmo que teria um link aí? 😆",
+        "Esse não é um botão.",
+        "Esse também não! 🤪",
+        "Vai mesmo testar todos? 😱",
+        "Realmente você não desiste.",
+        "Já está merecendo um prêmio! 🏆",
+        "Quem sabe no proximo?",
+        "Seu prêmio é... 🥁",
+        "Calsaçoooo 🎉",
+        "Isso é tudo pessoal! 😊"
+    ];
+
+    const totalMensagens = 9;
     
     const handleLinkClick = (e) => {
         e.preventDefault();
-        setExibirBalao(true);
-        setFraseAtual((prev) => (prev + 1) % totalFrases);
+        setExibirToast(true);
+        setMensagemAtual((prev) => (prev + 1) % totalMensagens);
     }
-
-    useEffect(() => {
-        if (exibirBalao) {
-            const timer = setTimeout(() => {
-                setExibirBalao(false);
-            }, 2000);
-            return () => clearTimeout(timer);
-        }
-    }, [exibirBalao, fraseAtual]);
 
     return (
         <footer className={styles.footerContainer}>
@@ -41,10 +46,10 @@ export function Footer() {
                 ))}
             </div>
             <div className={styles.copyrightRow}>
-                <span>Português (Brasil) ▾</span>
+                <span>Português (Brasil) <Icones.ArrowDown size={12} className="iconeArrow" /></span>
                 <span>© 2026 Instagram from Meta</span>
             </div>
-            <Toast exibirBalao={exibirBalao} fraseAtual={fraseAtual} />
+            <Toast exibir={exibirToast} mensagem={mensagensSequenciais[mensagemAtual]} aoFechar={() => setExibirToast(false)} />
         </footer>
     );
 }
