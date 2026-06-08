@@ -1,0 +1,73 @@
+.wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+    display: flex;
+    align-items: center;
+    background-color: transparent;
+    padding: 10px 0;
+}
+
+.container {
+    display: flex;
+    gap: 15px;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    width: 100%;
+    padding: 5px;
+}
+
+.cardStory {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    min-width: 80px;
+}
+
+.bordaFoto {
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+    padding: 2px;
+    background: radial-gradient(circle at 30% 107%, #F1D344 15%, #EE5052 40%, #EC3268 45%, #DC2BC3 75%, #9C1EDB 85%, #6C1DFB 95%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.fotoPerfil {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.nomeUsuario {
+    font-size: 12px;
+    color: var(--cor-texto4);
+    margin-top: 4px;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 100%;
+}
+
+.setaEsquerda, .setaDireita {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.8);
+    border: none;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    font-size: 18px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 5;
+    box-shadow: 0px 2px 5px rgba(0,0,0,0.2);
+}
+.setaEsquerda { left: 5px; }
+.setaDireita { right: 5px; }

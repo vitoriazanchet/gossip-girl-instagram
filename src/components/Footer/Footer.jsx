@@ -22,11 +22,11 @@ export function Footer() {
         "Já está merecendo um prêmio! 🏆",
         "Quem sabe no proximo?",
         "Seu prêmio é... 🥁",
-        "Calsaçoooo 🎉",
+        "Cansaçoooo 🎉",
         "Isso é tudo pessoal! 😊"
     ];
 
-    const totalMensagens = 9;
+    const totalMensagens = 10;
     
     const handleLinkClick = (e) => {
         e.preventDefault();

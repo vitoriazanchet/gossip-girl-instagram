@@ -1,10 +1,9 @@
 import { useState, useEffect } from 'react';
 import styles from './Login.module.css';
 import { Icones } from '../../utils/icons';
-import { GradienteInstagram } from '../../components/GradienteInstagram';
+import { GradienteInstagram } from '../../components/GradienteInstagram/GradienteInstagram';
 import { Footer } from '../../components/Footer/Footer';
 import { Toast } from '../../components/Toast/Toast';
-import imagemPropaganda from '../../assets/img.png';
 
 export function Login({ navegarPara }) {
   const [usuario, setUsuario] = useState('');
@@ -17,8 +16,10 @@ export function Login({ navegarPara }) {
   const handleLogin = (e) => {
     e.preventDefault();
     if (usuario === 'admin' && senha === 'admin1') {
-      alert('Login efetuado com sucesso!');
+      setMensagemToast('Login efetuado com sucesso!');
+      setExibirToast(true);
       setMostrarErroLogin(false);
+      setTimeout(() => {setExibirToast(false); navegarPara('feed');}, 2500);
       } else {
       setMostrarErroLogin(true);
     }
@@ -48,7 +49,7 @@ export function Login({ navegarPara }) {
             <GradienteInstagram /><Icones.Instagram size={88} style={{ fill: "url(#insta-gradient)" }} />
           </div>
           <p className={styles.propaganda}>Veja momentos do dia a dia dos seus amigos próximos.</p>
-          <img className={styles.imgPropaganda} src={imagemPropaganda} alt="Imagem de propaganda do Instagram" />
+          <img className={styles.imgPropaganda} src="/img/img.png" alt="Imagem de propaganda do Instagram" />
         </div>
         <div className={styles.cardLogin}>
           <p className={styles.entrarText}>Entrar no Instagram</p>

@@ -18,6 +18,8 @@ export function CriarConta({ navegarPara }) {
   const [contarCliques, setContarCliques] = useState(0);
   const [mostrarCampoIdade, setMostrarCampoIdade] = useState(false);
   const [activeTooltip, setActiveTooltip] = useState(false);
+  const [exibirPernalonga, setExibirPernalonga] = useState(false);
+  const [faseSucesso, setFaseSucesso] = useState('formulario');
   
   const handleInformacoes = (i) => {
     i.preventDefault();
@@ -87,9 +89,11 @@ export function CriarConta({ navegarPara }) {
     else if (user.toLowerCase() === 'admin') {errosDetetados.user = 'O nome de usuário admin não está disponível.';}
     setErros(errosDetetados);
     if (Object.keys(errosDetetados).length > 0) {
+      setExibirPernalonga(Date.now());
       return;
     }
-    alert('Bem-vindo! Conta criada com sucesso.');
+    alert('Conta criada com sucesso! Clique "ok" para continuar.');
+    setFaseSucesso('videoHarry');
   };
 
   const validarEmail = () => {
@@ -150,6 +154,8 @@ export function CriarConta({ navegarPara }) {
     const temFeitico = feiticos.some(feitico => valor.toLowerCase().includes(feitico));
     const temFeiticoProibido = feiticosProibidos.some(feitico => valor.toLowerCase().includes(feitico));
     const temHexa = valor.includes('2026');
+    const tamanhoAtual = valor.length;
+    const temQuantidadeDeDigitos = valor.includes(String(tamanhoAtual));
 
     if (valor.length < 6) {
       setErros(prev => ({ ...prev, senha: 'No mínimo 6 dígitos.' }));
@@ -169,6 +175,8 @@ export function CriarConta({ navegarPara }) {
       setErros(prev => ({ ...prev, senha: 'Esse não! 🪄' }));
     } else if (!temHexa) {
       setErros(prev => ({ ...prev, senha: 'Tem que ter o ano em que o Brasil ganhou o hexa.' }));
+    } else if (!temQuantidadeDeDigitos) {
+      setErros(prev => ({ ...prev, senha: 'Tem que ter o número correspondente à quantidade total de caracteres!' }));
     } else {
       setErros(prev => ({ ...prev, senha: '' }));
     }
@@ -184,6 +192,17 @@ export function CriarConta({ navegarPara }) {
     setErros(prev => ({ ...prev, [campo]: '' }));
   };
 
+  if (faseSucesso !== 'formulario') {
+    return (
+      <div className={styles.telaVideoCheia}>
+        {faseSucesso === 'videoHarry' ? (
+          <video src="/videos/harry.mov" autoPlay className={styles.video} onEnded={() => setFaseSucesso('videoEnd')} />
+        ) : (
+          <video src="/videos/end.mp4" autoPlay className={styles.video} />
+        )}
+      </div>
+    );
+  }
   return (
     <div className={styles.telaCheia}>
       <div className={styles.container}>
@@ -296,6 +315,9 @@ export function CriarConta({ navegarPara }) {
         <p>A&nbsp;<a href="#privacidade2" className={styles.link} onClick={handlePrivacidade2}>Política de Privacidade</a>&nbsp;descreve como podemos usar as informações que coletamos quando você cria uma conta. Por exemplo, usamos essas informações para fornecer, personalizar e melhorar nossos produtos, incluindo anúncios.</p>
         <button className={styles.enviar} onClick={handleEnviar}>Enviar</button>
         <button className={styles.conta} onClick={handleTemConta}>Já tenho uma conta</button>
+        {exibirPernalonga > 0 && (
+          <video key={exibirPernalonga} src="/videos/pernalonga.mov" className={`${styles.videoPernalonga} ${styles.show}`} autoPlay onEnded={() => setExibirPernalonga(0)} />
+        )}
         <Toast exibir={exibirToast} mensagem={mensagemToast} aoFechar={() => setExibirToast(false)} />
       </div>
       <Footer />

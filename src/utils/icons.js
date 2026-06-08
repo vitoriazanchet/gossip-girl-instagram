@@ -7,7 +7,7 @@ import { TbAlignBoxRightStretch } from "react-icons/tb";
 import { FaBars, FaMeta, FaRetweet } from "react-icons/fa6";
 import { VscAccount, VscVerifiedFilled } from "react-icons/vsc";
 import { IoChatbubbleOutline, IoAlertCircleOutline, IoCheckmarkCircleOutline, IoCloseSharp } from "react-icons/io5";
-import { RiBookmarkLine } from "react-icons/ri";
+import { RiBookmarkLine, RiBookmarkFill } from "react-icons/ri";
 import { IoIosArrowDown, IoIosArrowBack, IoMdHelpCircleOutline } from "react-icons/io";
 
 export const Icones = {
@@ -25,10 +25,11 @@ export const Icones = {
     Menu: FaBars,
     Meta: FaMeta,
     Camera: FaCamera,
-    Verificado: VscVerifiedFilled,
+    Verified: VscVerifiedFilled,
     Comentar: IoChatbubbleOutline,
     Repostar: FaRetweet,
     Salvar: RiBookmarkLine,
+    Salvo: RiBookmarkFill,
     Visivel: AiFillEye,
     Escondido: AiFillEyeInvisible,
     Alerta: IoAlertCircleOutline,
