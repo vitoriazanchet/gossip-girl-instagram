@@ -87,11 +87,11 @@ JavaScript
 
 1.  **Clone o repositório:**
     ```bash
-    git clone https://github.com/vitoriazanchet/login-instagram.git
+    git clone https://github.com/vitoriazanchet/gossip-girl-instagram.git
     ```
 2.  **Entre na pasta do projeto:**
     ```bash
-    cd login-instagram
+    cd gossip-girl-instagram
     ```
 3.  **Instale as dependências:**
     ```bash
@@ -107,7 +107,7 @@ JavaScript
 ## 📁 Estrutura de Pastas
 
 ```
-login-instagram
+gossip-girl-instagram
 ├── public/                 # Imagens e vídeos
 ├── src/
 │   ├── components/         # Componentes compartilhados
