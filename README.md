@@ -5,6 +5,12 @@
 
 Um clone estilizado de rede social inspirado no Instagram, customizado com a identidade misteriosa e ácida da série **Gossip Girl**, envelopado em uma experiência visual que mistura componentes modernos com janelas retrôs de sistemas operacionais clássicos (estilo Windows 95/98).
 
+![Video do site](https://github.com/vitoriazanchet/gossip-girl-instagram/blob/main/gossip-girl-instagram.gif)
+
+### Tela de referência
+
+![Tela de referência](https://github.com/vitoriazanchet/gossip-girl-instagram/blob/main/print-tela-referencia.png)
+
 ## 💻 Sobre o Projeto
 
 Este projeto é uma aplicação Single Page Application (SPA) desenvolvida em **React** e **Vite**, focada em aplicar conceitos avançados de gerenciamento de estado, renderização condicional inteligente, modularização/componentização e transições fluidas puramente por CSS.
