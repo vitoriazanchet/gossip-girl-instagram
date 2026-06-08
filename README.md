@@ -102,6 +102,11 @@ JavaScript
     npm run dev
     ```
 5.  Abra o navegador no endereço indicado pelo terminal (geralmente `http://localhost:5173`).
+
+
+## 🔗 Link para Acesso Direto
+A aplicação está hospedada e disponível para testes no link abaixo:
+👉 **[Acesse Aqui](https://gossip-girl-instagram.vercel.app/)**
     
 
 ## 📁 Estrutura de Pastas
