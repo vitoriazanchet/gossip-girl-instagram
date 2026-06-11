@@ -58,3 +58,14 @@ p {
     -moz-osx-font-smoothing: grayscale;
     margin-bottom: 10px;
 }
+
+@media (max-width: 768px) {
+  .colunaDireita {
+    display: none;
+  }
+
+  .layoutFeed {
+    grid-template-columns: 70px 1fr;
+  }
+
+}

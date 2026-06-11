@@ -49,7 +49,7 @@ export function Login({ navegarPara }) {
             <GradienteInstagram /><Icones.Instagram size={88} style={{ fill: "url(#insta-gradient)" }} />
           </div>
           <p className={styles.propaganda}>Veja momentos do dia a dia dos seus amigos próximos.</p>
-          <img className={styles.imgPropaganda} src="/img/img.png" alt="Imagem de propaganda do Instagram" />
+          <img className={styles.imgPropaganda} src="/assets/img.png" alt="Imagem de propaganda do Instagram" />
         </div>
         <div className={styles.cardLogin}>
           <p className={styles.entrarText}>Entrar no Instagram</p>

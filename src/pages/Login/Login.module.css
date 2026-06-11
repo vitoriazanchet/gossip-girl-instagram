@@ -138,3 +138,14 @@ button.criar{
     flex-direction: column;
     text-align: left;
 }
+
+@media (max-width: 768px) {
+  .cardInstagram {
+    display: none;
+  }
+
+  .cardLogin {
+    width: 100%;
+    height: 100vh;
+  }
+}

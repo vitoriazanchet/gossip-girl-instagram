@@ -5,11 +5,11 @@
 
 Um clone estilizado de rede social inspirado no Instagram, customizado com a identidade misteriosa e ácida da série **Gossip Girl**, envelopado em uma experiência visual que mistura componentes modernos com janelas retrôs de sistemas operacionais clássicos (estilo Windows 95/98).
 
-![Video do site](https://github.com/vitoriazanchet/gossip-girl-instagram/blob/main/gossip-girl-instagram.gif)
+![Video do site](https://github.com/vitoriazanchet/gossip-girl-instagram/blob/main/public/assets/gossip-girl-instagram.gif)
 
 ### Tela de referência
 
-![Tela de referência](https://github.com/vitoriazanchet/gossip-girl-instagram/blob/main/print-tela-referencia.png)
+![Tela de referência](https://github.com/vitoriazanchet/gossip-girl-instagram/blob/main/public/assets/print-tela-referencia.png)
 
 ## 💻 Sobre o Projeto
 
@@ -134,7 +134,7 @@ gossip-girl-instagram
 │   │   ├── Login/
 │   │   ├── CriarConta/
 │   │   └── Feed/
-│   ├── utils/              # Arquivos utilitários (ex: dicionário centralizado de ícones)
+│   ├── utils/              # Arquivos utilitários (dicionário centralizado de ícones)
 │   ├── App.jsx             # Maestro das rotas e estados principais
 │   ├── index.css           # Estilização global
 │   └── main.jsx            # Ponto de entrada do React
