@@ -5,7 +5,68 @@ import { Post } from '../../components/Post/Post';
 import { PainelLateral } from '../../components/PainelLateral/PainelLateral';
 import { ToastGossip } from '../../components/ToastGossip/ToastGossip';
 import { Footer } from '../../components/Footer/Footer';
-import styles from './Feed.module.css';
+import styled from 'styled-components';
+
+const LayoutFeed = styled.div`
+    display: grid;
+    grid-template-columns: 75px 1fr 320px;
+    grid-template-rows: 1fr;
+    min-height: 100vh;
+    width: 100%;
+    background-color: var(--cor-background);
+    @media (max-width: 768px) {
+      grid-template-columns: 70px 1fr;
+    }
+`
+const ColunaEsquerda = styled.aside`
+    grid-column: 1;
+`
+const ColunaCentro = styled.main`
+    grid-column: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 24px;
+    overflow-y: auto;
+`
+const ListaPosts = styled.div`
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 470px;
+    gap: 0;
+`
+const ColunaDireita = styled.aside`
+    grid-column: 3;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    overflow-y: auto;
+    padding: 20px 16px;
+    border-left: 1px solid var(--cor-borda, #dbdbdb);
+    @media (max-width: 768px) {
+      display: none;
+    }
+`
+const Titulo = styled.h3`
+    text-align: left;
+    font-weight: 600;
+    font-size: 14px;
+    letter-spacing: 0.9px;
+    line-height: 1.2;
+    margin-top: 12px;
+    margin-bottom: 6px;
+`
+const Texto = styled.p`
+    color: var(--cor-texto2);
+    font-size: 15px;
+    font-weight: 500;
+    letter-spacing: 0.6px;
+    line-height: 1.3;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    margin-bottom: 10px;
+`
 
 export function Feed({ navegarPara }) {
 
@@ -43,21 +104,17 @@ export function Feed({ navegarPara }) {
   ];
 
   return (
-    <div className={styles.layoutFeed}>
-      <aside className={styles.colunaEsquerda}>
-        <SidebarLateral dispararToast={dispararBombaGossip} />
-      </aside>
-      <main className={styles.colunaCentro}>
+    <LayoutFeed>
+      <ColunaEsquerda><SidebarLateral dispararToast={dispararBombaGossip}/></ColunaEsquerda>
+      <ColunaCentro>
         <BarraStories dispararToast={dispararBombaGossip} />
-        <div className={styles.listaPosts}>
+        <ListaPosts>
           {postsGossip.map((post) => (
             <Post key={post.id} autor={post.autor} imagem={post.imagem} legenda={post.legenda}/>
           ))}
-        </div>
-      </main>
-      <aside className={styles.colunaDireita}>
-        <PainelLateral dispararToast={dispararBombaGossip} />
-      </aside>
+        </ListaPosts>
+      </ColunaCentro>
+      <ColunaDireita><PainelLateral dispararToast={dispararBombaGossip}/></ColunaDireita>
       <ToastGossip 
         exibir={modalGossip.exibir}
         mensagem={modalGossip.mensagem}
@@ -65,6 +122,6 @@ export function Feed({ navegarPara }) {
         aoFechar={() => setModalGossip({ ...modalGossip, exibir: false })}
       />
       <Footer />
-    </div>
+    </LayoutFeed>
   );
 }

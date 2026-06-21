@@ -1,7 +1,23 @@
 import { useRef } from 'react';
 import { SugestaoUsuario } from './SugestaoUsuario';
 import { FooterPainel } from './FooterPainel';
-import styles from './PainelLateral.module.css';
+import styled from 'styled-components';
+
+const Wrapper = styled.div`
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    padding: 20px 10px 10px 10px;
+    gap: 24px;
+    background-color: transparent;
+`
+const Container = styled.div`
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    width: 100%;
+`
 
 export function PainelLateral({ dispararToast }) {
   const containerRef = useRef(null);
@@ -26,8 +42,8 @@ export function PainelLateral({ dispararToast }) {
   };
 
   return (
-    <div className={styles.wrapper}>
-      <div className={styles.container} ref={containerRef}>
+    <Wrapper>
+      <Container ref={containerRef}>
         <SugestaoUsuario perfil={gossipGirl.perfil} nome={gossipGirl.nome} usuario={gossipGirl.usuario} aoClicar={() => dispararToast(gossipGirl.frase, gossipGirl.perfil)}/>
         {listaSugestoes.map((sugestao) => (
           <SugestaoUsuario key={sugestao.id} perfil={sugestao.perfil} nome={sugestao.nome} usuario={sugestao.usuario}
@@ -35,8 +51,8 @@ export function PainelLateral({ dispararToast }) {
             aoSeguir={(e) => handleSeguirComMapa(e, sugestao.usuario)}
           />
         ))}
-      </div>
+      </Container>
       <FooterPainel />
-    </div>
+    </Wrapper>
   );
 }

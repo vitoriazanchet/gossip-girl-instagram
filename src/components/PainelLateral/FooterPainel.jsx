@@ -1,6 +1,50 @@
 import { useState } from 'react';
 import { Toast } from '../Toast/Toast.jsx';
-import styles from './PainelLateral.module.css';
+import styled from 'styled-components';
+
+const FooterContainer = styled.footer`
+    width: 100%;
+    margin-top: auto;
+    padding: 16px 0 10px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    border-top: 1px solid var(--cor-texto5);
+    font-size: 11px;
+    color: var(--cor-texto5);
+`
+const LinksRow = styled.div`
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 10px;
+    width: 100%;
+`
+const LinkWrapper = styled.div`
+    display: inline-flex;
+` 
+const FooterLink = styled.a`
+    color: var(--cor-texto5);
+    text-decoration: none;
+    transition: color 0.15s ease;
+    font-size: 11px;
+    &:hover {
+        color: var(--cor-texto4);
+        text-decoration: underline;
+    }
+    &:active {
+        color: var(--cor-texto6);
+    }
+`
+const CopyrightRow = styled.span`
+    font-size: 11px;
+    color: var(--cor-texto5);
+    margin: 0;
+    padding: 0;
+    line-height: 1.5;
+    letter-spacing: 0;
+    font-weight: 400;
+`
 
 export function FooterPainel() {
     const [mensagemAtual, setMensagemAtual] = useState(0);
@@ -33,16 +77,16 @@ export function FooterPainel() {
     }
 
     return (
-        <footer className={styles.footer}>
-        <div className={styles.linksRow}>
+        <FooterContainer>
+        <LinksRow>
           {links.map((link, index) => (
-            <div key={index} className={styles.linkWrapper}>
-              <a href={`#${link.toLowerCase()}`} className={styles.footerLink} onClick={handleLinkClick}>{link}</a>
-            </div>
+            <LinkWrapper key={index}>
+              <FooterLink href={`#${link.toLowerCase()}`} onClick={handleLinkClick}>{link}</FooterLink>
+            </LinkWrapper>
           ))}
-        </div>
-        <div className={styles.copyrightRow}><span>© 2026 GOSSIP GIRL BLOG</span></div>
+        </LinksRow>
+        <CopyrightRow>© 2026 GOSSIP GIRL BLOG</CopyrightRow>
         <Toast exibir={exibirToast} mensagem={mensagensSequenciais[mensagemAtual]} aoFechar={() => setExibirToast(false)} />
-      </footer>
+      </FooterContainer>
     );
 }

@@ -1,6 +1,56 @@
 import { useRef } from 'react';
 import { CardStory } from './CardStory';
-import styles from './BarraStories.module.css';
+import styled from 'styled-components';
+
+const Wrapper = styled.div`
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+    display: flex;
+    align-items: center;
+    background-color: transparent;
+    padding: 10px 0;
+`
+const Container = styled.div`
+    display: flex;
+    gap: 15px;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    width: 100%;
+    padding: 5px;
+`
+const SetaEsquerda = styled.button`
+    position: absolute;
+    background: rgba(255, 255, 255, 0.8);
+    border: none;
+    width: 25px;
+    height: 25px;
+    left: 5px;
+    border-radius: 50%;
+    font-size: 18px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 5;
+    box-shadow: 0px 2px 5px rgba(0,0,0,0.2);
+`
+const SetaDireita = styled.button`
+    position: absolute;
+    background: rgba(255, 255, 255, 0.8);
+    border: none;
+    width: 25px;
+    height: 25px;
+    right: 5px;
+    border-radius: 50%;
+    font-size: 18px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 5;
+    box-shadow: 0px 2px 5px rgba(0,0,0,0.2);
+`
 
 export function BarraStories({ dispararToast }) {
   const containerRef = useRef(null);
@@ -26,14 +76,14 @@ export function BarraStories({ dispararToast }) {
   };
 
   return (
-    <div className={styles.wrapper}>
-      <button className={styles.setaEsquerda} onClick={() => moverScroll('esquerda')}>‹</button>
-      <div className={styles.container} ref={containerRef}>
+    <Wrapper>
+      <SetaEsquerda onClick={() => moverScroll('esquerda')}>‹</SetaEsquerda>
+      <Container ref={containerRef}>
         {listaStories.map((story) => (
           <CardStory key={story.id} usuario={story.usuario} perfil={story.perfil} aoClicar={() => dispararToast(story.frase, story.imagem)} />
         ))}
-      </div>
-      <button className={styles.setaDireita} onClick={() => moverScroll('direita')}>›</button>
-    </div>
+      </Container>
+      <SetaDireita onClick={() => moverScroll('direita')}>›</SetaDireita>
+    </Wrapper>
   );
 }
