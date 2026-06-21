@@ -194,7 +194,7 @@ export function CriarConta({ navegarPara }) {
 
   if (faseSucesso !== 'formulario') {
     return (
-      <div className={styles.telaVideoCheia}>
+      <div className={styles.videoTelaCheia}>
         {faseSucesso === 'videoHarry' ? (
           <video src="/videos/harry.mov" autoPlay className={styles.video} onEnded={() => setFaseSucesso('videoEnd')} />
         ) : (
